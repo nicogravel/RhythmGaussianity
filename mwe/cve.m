@@ -9,9 +9,13 @@ freqs_low = [2, 10, 30]; %2 % Hz
 freqs_high = [8, 20, 60]; %12; % Hz   (Hidalgo et al. use 45 Hz)
 conditions = ['A', 'B'];
 
-
-%data      = data_unref
-data      = data_ref
+referencing = 1
+switch referencing
+    case 1
+        data      = data_unref
+    case 2
+        data      = data_ref
+end
 
 for freq_i = 1:3
     
@@ -36,7 +40,7 @@ for freq_i = 1:3
     maxCount = 400;
     trajectory = 0
     
-    % plot Power as function of CVE  
+    % plot Power as function of CVE
     figure,
     pos = get(gcf, 'Position');
     set(gcf, 'Position', [pos(1) pos(2)-400*freq_i+400 800, 400]); % Set plot size
@@ -82,7 +86,7 @@ for freq_i = 1:3
             cve(:,win_i+1) = sd/me;
             pow(:,win_i+1) = rms(wenv);
             
-        
+            
         end
         
         results.CVE{cond_i} = cve;
@@ -135,17 +139,17 @@ for freq_i = 1:3
     colormap(flipud(bone))
     set(gcf, 'color', 'w'); % Set figure background
     folder = pwd
-    switch cond_i
+    switch referencing
         case 1
-            fname = [folder '/rmsenvDyn_A_freq_'  num2str(freq_i) '.png'];
+            fname = [folder '/rmsenvDyn_noref_freq_'  num2str(freq_i) '.png'];
         case 2
-            fname = [folder '/rmsenvDyn_B_freq_'  num2str(freq_i) '.png'];
+            fname = [folder '/rmsenvDyn_Laplace_freq_'  num2str(freq_i) '.png'];
     end
     print(gcf, fname, '-dpng', '-r150', '-painters')
     
     
     
-    % plot standard deviation of phase as a function of CVE  
+    % plot standard deviation of phase as a function of CVE
     figure,
     pos = get(gcf, 'Position');
     set(gcf, 'Position', [pos(1)+800 pos(2)-400*freq_i+400 800, 400]); % Set plot size
@@ -207,7 +211,7 @@ for freq_i = 1:3
             %    linkOrder(t) = abs(sum(exp(1i*phi(t,:))))/size(dPhi,1);
             %end
             %meta(:,win_i+1) = std(linkOrder);
-        
+            
         end
         
         results.CVE{cond_i} = cve;
@@ -228,7 +232,7 @@ for freq_i = 1:3
         %pcolor(bin_centers{1},bin_centers{2}, counts');
         
         line([0.523 0.523],[minP maxP],'Color',[1 0 0])
-   
+        
         
         axis square;
         colorbar;
@@ -247,17 +251,17 @@ for freq_i = 1:3
     colormap(flipud(bone))
     set(gcf, 'color', 'w'); % Set figure background
     folder = pwd
-    switch cond_i
+    switch referencing
         case 1
-            fname = [folder '/phaseDyn_A_freq_'  num2str(freq_i) '.png'];
+            fname = [folder '/phaseDyn_noref_freq_'  num2str(freq_i) '.png'];
         case 2
-            fname = [folder '/phaseDyn_B_freq_'  num2str(freq_i) '.png'];
+            fname = [folder '/phaseDyn_Laplace_freq_'  num2str(freq_i) '.png'];
     end
     print(gcf, fname, '-dpng', '-r150', '-painters')
     
     
-       
-    % plot standard deviation of phase as a function of power 
+    
+    % plot standard deviation of phase as a function of power
     figure,
     pos = get(gcf, 'Position');
     set(gcf, 'Position', [pos(1)+800*2 pos(2)-400*freq_i+400 800, 400]); % Set plot size
@@ -318,7 +322,7 @@ for freq_i = 1:3
             %    linkOrder(t) = abs(sum(exp(1i*phi(t,:))))/size(dPhi,1);
             %end
             %meta(:,win_i+1) = std(linkOrder);
-        
+            
         end
         
         results.CVE{cond_i} = cve;
@@ -342,7 +346,7 @@ for freq_i = 1:3
         
         line([minX maxX],[minY maxY],'Color',[1 0 0])
         line([minX maxX],[minY maxY],'Color',[1 0 0])
-   
+        
         
         axis square;
         colorbar;
@@ -361,15 +365,15 @@ for freq_i = 1:3
     colormap(flipud(bone))
     set(gcf, 'color', 'w'); % Set figure background
     folder = pwd
-    switch cond_i
+    switch referencing
         case 1
-            fname = [folder '/ph-rmsnenvDyn_A_freq_'  num2str(freq_i) '.png'];
+            fname = [folder '/ph-rmsnenvDyn_noref_freq_'  num2str(freq_i) '.png'];
         case 2
-            fname = [folder '/ph-rmsenvDyn_B_freq_'  num2str(freq_i) '.png'];
+            fname = [folder '/ph-rmsenvDyn_Laplace_freq_'  num2str(freq_i) '.png'];
     end
     print(gcf, fname, '-dpng', '-r150', '-painters')
-        
-
+    
+    
     
     
 end
