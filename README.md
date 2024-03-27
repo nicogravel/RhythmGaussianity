@@ -2,7 +2,7 @@
 
 Revealing Rhythm Gaussianity by using the Coefficient of Variation of the Envelope (CVE).
 
-### Compute Coefficient of Variation (CVE) and RMS envelope
+### Compute the Coefficient of Variation (CVE) and RMS envelope
 * CVE = 0.523 reflects Gaussian noise
 * CVE < 0.523 reflects rhythmic fluctuations (e.g. Kuramoto oscillations)
 * CVE > 0.523 reflects phasic activity (e.g. avalanches)
