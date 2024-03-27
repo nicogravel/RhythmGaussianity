@@ -14,15 +14,15 @@ Hidalgo VM, Diaz J, Mpodozis J, Letelier JC. Envelope Analysis of the Human Alph
 
 ### Here we provide a minimal working example in Matlab:
 
-1. Load time series (as 2D array: *channels x time points*)
-2. Normalize acorss channels (z-score)
-3. Concatenate the time series in each channels (to a vector)
-4. Filter all channels (as vector)
-5. Obtain analytical signal: apply Hilbert transform
-6. De-concatenate channels (back to 2D array)
+1. Load time series (as 2D array: *channels x time points*).
+2. Normalize acorss channels (z-score).
+3. Concatenate the time series in each channels (to a vector).
+4. Filter all channels (as vector).
+5. Obtain analytical signal: apply Hilbert transform.
+6. De-concatenate channels (back to 2D array).
 7. Run sliding window to obtain, for each window:
-    * Envelope: Compute the Coefficient of Variation (CVE) and the RMS envelope 
-    * Phase: Compute local and global phase coherences using Kuramoto defintion (as *channel i to all* and each *across all channels*, respectively) 
+    * Envelope: Compute the Coefficient of Variation (CVE) and the RMS envelope. 
+    * Phase: Compute local and global phase coherences using Kuramoto defintion (as *channel i to all* and *across all channels*, excluding self loops, respectively). 
 
 Example result for a single subject without referencing:
   
