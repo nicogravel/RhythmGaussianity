@@ -13,16 +13,17 @@ Hidalgo VM, Diaz J, Mpodozis J, Letelier JC. Envelope Analysis of the Human Alph
 
 ### Here we provide a minimal working example in Matlab:
 
-1. Load time series (as 2D array: *channels x time points*).
-2. Normalize acorss channels (z-score).
-3. Concatenate the time series in each channels (to a vector).
-4. Filter all channels (as vector).
-5. Obtain analytical signal: apply Hilbert transform.
-6. De-concatenate channels (back to 2D array).
-7. Run sliding window to obtain, for each window:
-    * Envelope: Compute the Coefficient of Variation (CVE) and the RMS envelope. 
-    * Phase: Compute local and global phase coherences using Kuramoto defintion (as *channel i to all* and *across all channels*, excluding self loops, respectively). 
+1. Load time series as 2D array: *channels x time points*
+2. Normalize acorss channels using z-score
+3. Concatenate the time series in each channel to a vector
+4. Filter normalized time series
+5. Obtain analytical signal: apply Hilbert transform
+6. De-concatenate the analytical signal back to a 2D array with shape *channels x time points*
+7. Run a sliding window to obtain, for each window:
+    * Envelopes: To then compute the Coefficient of Variation (CVE) and the RMS envelope. 
+    * Phases: To then compute local and global phase coherences as the Kuramoto order prameter for *channel i to all* and *across all channels*
 
+    
 Example result for a single subject without referencing:
   
 <img src="https://github.com/nicogravel/rhythm-gaussianity/blob/main/mwe/rmsenvDyn_noref_freq_1.png" width=30%><img src="https://github.com/nicogravel/rhythm-gaussianity/blob/main/mwe/phaseDyn_noref_freq_1.png" width=30%><img src="https://github.com/nicogravel/rhythm-gaussianity/blob/main/mwe/ph-rmsenvDyn_Laplace_freq_1.png" width=30%>
