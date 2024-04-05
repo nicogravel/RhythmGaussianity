@@ -1,6 +1,6 @@
 # Rhythm Gaussianity
 
-Revealing Rhythm Gaussianity by using the Coefficient of Variation of the Envelope (CVE).. **work in progres**...
+Revealing Rhythm Gaussianity by using the Coefficient of Variation of the Envelope (CVE).
 
 * CVE = 0.523 reflects Gaussian noise
 * CVE < 0.523 reflects rhythmic fluctuations (e.g. Kuramoto oscillations)
