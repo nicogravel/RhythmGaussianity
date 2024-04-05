@@ -19,12 +19,12 @@ Here we provide two minimal working examples. A *toolbox free* example using Mat
 The following plots were produced for EEG data for a single subject (sampling rate: 1000Hz). Electrode signals from occipital-parietal electrode were re-ferenceed to the average and band-pass filtered between 8-13 Hz (using a zero-shift Butterworth oforder 4). The complex analytical signal was computed using the Hilbert transform on the concatenated data. Subsequently, the CVE, RMS envelope and Kuramoto order parameters were computed for sliding windows (24 seconds long with 90% overlap. This must change to 50% when scaling up the analysis to compute and groupe results across subjects). No artefacts rejection was applied. In the following plots, the capitol leters A and B denote conditions. In parenthesis, the number of sliding windows for each condition.
  
 
-**Normalisation across electrodes** 
+**Normalisation across electrodes**   
 <img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/rmsenv-cve_alpha_across.png" width=50%><img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/kurvar-rms_alpha_across.png" width=50%>
 
-**Normalisation within electrodes** 
+**Normalisation within electrodes**  
 <img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/rmsenv-cve_alpha_within.png" width=50%><img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/kurvar-rms_alpha_within.png" width=50%>
 
-**Distributions for CVE and the standard deviation of phase coherence**
-Gray and light red histograms corresponds to condition A and B respetively.
+**Distributions for CVE and the standard deviation of phase coherence**  
+Gray and light red histograms corresponds to condition A and B respetively.  
 <img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/hist_cve_alpha.png" width=50%><img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/kurvar_alpha.png" width=50%>
