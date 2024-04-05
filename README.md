@@ -1,4 +1,4 @@
-# rhythm-gaussianity
+# Rhythm Gaussianity
 
 Revealing Rhythm Gaussianity by using the Coefficient of Variation of the Envelope (CVE).
 
@@ -8,33 +8,19 @@ Revealing Rhythm Gaussianity by using the Coefficient of Variation of the Envelo
 
 
 
-> Reference:
+> References:
 Hidalgo VM, Diaz J, Mpodozis J, Letelier JC. Envelope Analysis of the Human Alpha Rhythm Reveals EEG Gaussianity. IEEE Trans Biomed Eng. 2023 Apr;70(4):1242-1251. doi: 10.1109/TBME.2022.3213840. Epub 2023 Mar 21. PMID: 36223351.
+Hidalgo VM, Letelier JC, Diaz J. The amplitude modulation pattern of Gaussian noise is a fingerprint of Gaussianity. https://doi.org/10.48550/arXiv.2203.16253
 
-### Here we provide a minimal working example in Matlab:
+Here we provide two minimal working examples. A *toolbox free* example using Matlab (mwe folder, *stil exploratory*), and an working example using Matlab and Fieldtrip (mwe_fieldtrip folder).
 
-1. Load time series as 2D array: *channels x time points*
-2. Normalize acorss channels using z-score
-3. Concatenate the time series in each channel to a vector
-4. Filter normalized time series
-5. Obtain analytical signal: apply Hilbert transform
-6. De-concatenate the analytical signal back to a 2D array with shape *channels x time points*
-7. Run a sliding window to obtain, for each window:
-    * Envelopes: To then compute the Coefficient of Variation (CVE) and the RMS envelope. 
-    * Phases: To then compute local and global phase coherences as the Kuramoto order prameter for *channel i to all* and *across all channels*
+The following plots were produced for EEG data for a single subject (sampling rate: 1000Hz). Electrode signals from occipital-parietal electrode were re-ferenceed to the average and band-pass filtered between 8-13 Hz (using a zero-shift Butterworth oforder 4). CVE, RMS envelope and Kuramoto order parameters were computed for sliding windows (24 seconds long with 90% overlap. This must change to 50% when scaling up the analysis to compute and groupe results across subjects). 
 
-    
-Example result for a single subject without referencing:
-  
-<img src="https://github.com/nicogravel/rhythm-gaussianity/blob/main/mwe/rmsenvDyn_noref_freq_1.png" width=30%><img src="https://github.com/nicogravel/rhythm-gaussianity/blob/main/mwe/phaseDyn_noref_freq_1.png" width=30%><img src="https://github.com/nicogravel/rhythm-gaussianity/blob/main/mwe/ph-rmsenvDyn_Laplace_freq_1.png" width=30%>
-<img src="https://github.com/nicogravel/rhythm-gaussianity/blob/main/mwe/rmsenvDyn_noref_freq_2.png" width=30%><img src="https://github.com/nicogravel/rhythm-gaussianity/blob/main/mwe/phaseDyn_noref_freq_2.png" width=30%><img src="https://github.com/nicogravel/rhythm-gaussianity/blob/main/mwe/ph-rmsenvDyn_Laplace_freq_2.png" width=30%>
-<img src="https://github.com/nicogravel/rhythm-gaussianity/blob/main/mwe/rmsenvDyn_noref_freq_3.png" width=30%><img src="https://github.com/nicogravel/rhythm-gaussianity/blob/main/mwe/phaseDyn_noref_freq_3.png" width=30%><img src="https://github.com/nicogravel/rhythm-gaussianity/blob/main/mwe/ph-rmsenvDyn_Laplace_freq_3.png" width=30%>
-  
+* **Distributions for CVE and the standard deviation of phase coherence**:  
+<img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/hist_cve_alpha.png" width=50%><img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/kurvar_alpha.png" width=50%>
 
-    
-* Example result for a single subject with Laplace referencing:
-  
-<img src="https://github.com/nicogravel/rhythm-gaussianity/blob/main/mwe/rmsenvDyn_Laplace_freq_1.png" width=30%><img src="https://github.com/nicogravel/rhythm-gaussianity/blob/main/mwe/phaseDyn_Laplace_freq_1.png" width=30%><img src="https://github.com/nicogravel/rhythm-gaussianity/blob/main/mwe/ph-rmsenvDyn_Laplace_freq_1.png" width=30%>
-<img src="https://github.com/nicogravel/rhythm-gaussianity/blob/main/mwe/rmsenvDyn_Laplace_freq_2.png" width=30%><img src="https://github.com/nicogravel/rhythm-gaussianity/blob/main/mwe/phaseDyn_Laplace_freq_2.png" width=30%><img src="https://github.com/nicogravel/rhythm-gaussianity/blob/main/mwe/ph-rmsenvDyn_Laplace_freq_2.png" width=30%>
-<img src="https://github.com/nicogravel/rhythm-gaussianity/blob/main/mwe/rmsenvDyn_Laplace_freq_3.png" width=30%><img src="https://github.com/nicogravel/rhythm-gaussianity/blob/main/mwe/phaseDyn_Laplace_freq_3.png" width=30%><img src="https://github.com/nicogravel/rhythm-gaussianity/blob/main/mwe/ph-rmsenvDyn_Laplace_freq_3.png" width=30%>
+* **Normalisation across electrodes**:  
+<img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/rmsenv-cve_alpha_across.png" width=50%><img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/kurvar-rms_alpha_across.png" width=50%>
 
+* **Normalisation within electrodes**:  
+<img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/rmsenv-cve_alpha_within.png" width=50%><img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/kurvar-rms_alpha_within.png" width=50%>

@@ -10,7 +10,16 @@
 % the Human Alpha Rhythm Reveals EEG Gaussianity. IEEE Trans Biomed Eng. 
 % 2023 Apr;70(4):1242-1251. 
 % doi: 10.1109/TBME.2022.3213840. Epub 2023 Mar 21. PMID: 36223351.
-
+%
+% 1. Load time series as 2D array: *channels x time points*
+% 2. Normalize acorss channels using z-score
+% 3. Concatenate the time series in each channel to a vector
+% 4. Filter normalized time series
+% 5. Obtain analytical signal: apply Hilbert transform
+% 6. De-concatenate the analytical signal back to a 2D array with shape *channels x time points*
+% 7. Run a sliding window to obtain, for each window:
+%   * Envelopes: To then compute the Coefficient of Variation (CVE) and the RMS envelope. 
+%   * Phases: To then compute local and global phase coherences as the Kuramoto order prameter for *channel i to all* and *across all channels*
 
 clear all
 close all
