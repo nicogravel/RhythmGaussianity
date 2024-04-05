@@ -14,11 +14,13 @@ Revealing Rhythm Gaussianity by using the Coefficient of Variation of the Envelo
 
 2. Hidalgo VM, Letelier JC, Diaz J. **The amplitude modulation pattern of Gaussian noise is a fingerprint of Gaussianity**. https://doi.org/10.48550/arXiv.2203.16253
 
-Here we provide two minimal working examples. A *toolbox free* example using Matlab (mwe folder, *stil exploratory*), and an working example using Matlab and Fieldtrip (mwe_fieldtrip folder).
+Here we provide two minimal working examples. A *toolbox free* example using Matlab for illustrative purpose (mwe folder), and a working example using Matlab and the toolbox Fieldtrip (mwe_fieldtrip folder).
 
-The following plots were produced for EEG data for a single subject (sampling rate: 1000Hz). Electrode signals from occipital-parietal electrode were re-ferenceed to the average and band-pass filtered between 8-13 Hz (using a zero-shift Butterworth oforder 4). The complex analytical signal was computed using the Hilbert transform on the concatenated data. Subsequently, the CVE, RMS envelope and Kuramoto order parameters were computed for sliding windows (24 seconds long with 90% overlap. This must change to 50% when scaling up the analysis to compute and groupe results across subjects). No artefacts rejection was applied. In the following plots, the capitol leters A and B denote conditions. In parenthesis, the number of sliding windows for each condition.
+## **Example results**
+
+The following plots were obtained from EEG data for a single subject (sampling rate: 1000Hz). Electrode signals from five occipital and parietal electrodes were re-referenced to the global average and band-pass filtered between 8-13 Hz using a zero-shift Butterworth oforder four. The complex analytical signal was computed using the Hilbert transform applied to the whole time series length. The CVE, RMS envelope and Kuramoto order parameters were computed for sliding windows of 24 seconds length and 90% overlap (this must change to 50% when scaling up the analysis). No artefacts rejection was applied. In the following plots, the capital leters A and B indicate arbitrary conditions. In parenthesis, the number of sliding windows for each condition (#).
  
-**RMS envelope as a function of CVE and phase coherence**  
+### **RMS envelope as a function of CVE and phase coherence**  
   
 For data normalised *across* electrodes:     
 <img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/rmsenv-cve_alpha_across.png" width=50%><img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/kurvar-rms_alpha_across.png" width=50%>
@@ -26,7 +28,7 @@ For data normalised *across* electrodes:
 For data normalised *within* electrodes:    
 <img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/rmsenv-cve_alpha_within.png" width=50%><img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/kurvar-rms_alpha_within.png" width=50%>
 
-**Distributions for CVE and the standard deviation of phase coherence**  
+### **Distributions for CVE and the standard deviation of phase coherence**  
   
 Gray and light-red histograms corresponds to condition A and B:  
 <img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/hist_cve_alpha.png" width=50%><img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/kurvar_alpha.png" width=50%>
