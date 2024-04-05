@@ -30,5 +30,5 @@ For data normalised *within* electrodes:
 
 ### **Distributions for CVE and the standard deviation of phase coherence**  
   
-Gray and light-red histograms corresponds to condition A and B:  
+Gray and light-red histograms corresponds to condition A and B, respectively:  
 <img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/hist_cve_alpha.png" width=50%><img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/kurvar_alpha.png" width=50%>
