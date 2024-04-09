@@ -20,7 +20,7 @@ Here we provide two minimal working examples. A *toolbox free* example using Mat
 
 The following plots were obtained from EEG data for a single subject (sampling rate: 1000Hz). Electrode signals from five occipital and parietal electrodes were re-referenced to the global average and band-pass filtered between 8-13 Hz using a zero-shift Butterworth filtr of order 4. The complex analytical signal was computed using the Hilbert transform applied to the whole time series length. The CVE, RMS envelope and Kuramoto order parameters were computed for sliding windows of 24 seconds length and 90% overlap (this must change to 50% when scaling up the analysis). No artifacts rejection was applied. In the following plots, the capital letters A and B indicate arbitrary conditions. In parenthesis, the number of sliding windows for each condition (#).
  
-### **RMS envelope as a function of CVE and phase coherence**  
+### **RMS envelope as a function of CVE and the Kuramoto order parameter for phase relations**  
   
 For data normalized *across* electrodes (preserves the topographical magnitude scaling, misses amplitude-dependent patterns):     
 <img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/rmsenv-cve_alpha_across.png" width=50%><img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/kurvar-rms_alpha_across.png" width=50%>
@@ -28,7 +28,10 @@ For data normalized *across* electrodes (preserves the topographical magnitude s
 For data normalized *within* electrodes (works as magnitude correction, makes amplitude-dependent patterns comparable):    
 <img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/rmsenv-cve_alpha_within.png" width=50%><img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/kurvar-rms_alpha_within.png" width=50%>
 
-### **Distributions for CVE and the standard deviation of phase coherence**  
+### **Distributions for CVE and the standard deviation of the Kuramoto order parameter for phase relations**  
   
-Gray and light-red histograms corresponds to condition A and B, respectively:  
+Light-red and grey histograms corresponds to condition A and B, respectively:  
 <img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/hist_cve_alpha.png" width=50%><img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/kurvar_alpha.png" width=50%>
+
+### **The Kuramoto order parameter for phase relations overlaid onto an histogram of phase differences**
+<img src="https://github.com/nicogravel/RhythmGaussianity/blob/main/mwe_fieldtrip/kurHist_alpha_condB.png" width=100%>
