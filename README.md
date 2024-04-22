@@ -34,12 +34,12 @@ To asses increases and decrease in RMS envelope and CVE throughout the recording
 
 **Figure 2.** Contour plots illustrating the relationship between RMS envelope and CVE. Contours were obtained by linear interpolation of the bivariate grid. Colorbar indicate bin count for each contour.
 	
-            |   |   **A**| **B**  | 
-            |---|---|---|
-            |   RMS increases|    39.6825 %|    61.2613 %|  
-            |   RMS decreases|    60.3175 %|     38.7387 %|   
-            |   CVE increases|   52.1739 %|   48.3871 %|  
-            |   CVE decreases|    47.8261 %|   51.6129 %|
+|   |   **A**| **B**  | 
+|---|---|---|
+|   RMS increases|    39.6825 %|    61.2613 %|  
+|   RMS decreases|    60.3175 %|     38.7387 %|   
+|   CVE increases|   52.1739 %|   48.3871 %|  
+|   CVE decreases|    47.8261 %|   51.6129 %|
   
 **Table 1.** Changes in RMS envelope and CVE in point to departures from rhythm Gaussianity. 
 
