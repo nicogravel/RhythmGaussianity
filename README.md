@@ -44,6 +44,7 @@ To quantify the range of dynamic activity in each conditions captured by the CVE
 |   RMS decreases|    60.3175 %|     38.7387 %|   
 |   CVE increases|   52.1739 %|   48.3871 %|  
 |   CVE decreases|    47.8261 %|   51.6129 %|
+  
 **Table 1.** Changes in RMS envelope and CVE in point to departures from rhythm Gaussianity. To quantify the percentage of increases in RMS envelope and CVE departures n
 
 
