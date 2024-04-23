@@ -31,8 +31,8 @@ for condition = 1 : length(list.conditions)
     for file = 1: length(data)
         CVE{condition,file}  =  data{file}.cve(:); % CVE
         RMS{condition,file}  =  data{file}.pow(:); % RMS envelope
-        COH{condition,file} =  data{file}.kurVar_ch(:); % RMS envelope\
-        KUR{condition,file}  =  data{file}.kur_all(:); % RMS envelope
+        COH{condition,file} =  data{file}.kurVar_ch(:); 
+        KUR{condition,file}  =  data{file}.kur_all(:); 
     end
 end
 
@@ -55,7 +55,7 @@ mean(dX_a)
 mean(dX_b)
 
 %% Compute sequences of RMS shift sign: decreases or increases in power
-excursion_length = 3 % sequence length as number of succesive windows, here 12 seconds
+excursion_length = 3 % sequence length as number of succesive windows, here 9 seconds
 %% Go ahead...
 % Conditions A
 Ex = dY_a < 0;
@@ -116,6 +116,7 @@ cve_dyn_B(2,:) =  (100/length(Excursions))*towards_pulses_B; % = 51.6129% of "to
 cve_dyn_B
 
 %% Occupancy: windows below or above 5% and 95% percentiles in CVE for each conditions
+
 Gaussian_CVE = sqrt((4-pi)/pi) % Gaussian CVE
 cut_left   = prctile([dX_a,dX_b],5); cut_right = prctile([dX_a,dX_b],95); % percentile cut-offs
 thr_left   = Gaussian_CVE + cut_left; thr_right = Gaussian_CVE + cut_right; % thresholds
@@ -129,6 +130,53 @@ phasic_windows(1,:) = length(phasic_a); phasic_windows(2,:) = length(phasic_b);
 phasic_occupancy(1,:) = (100/length(X_a))*phasic_windows(1,:);
 phasic_occupancy(2,:) = (100/length(X_b))*phasic_windows(2,:);
 phasic_occupancy % percentage of phasic windows for each condition
+
+% Gaussian Noise
+Gaussian_noise = wgn(100000,2,0);
+window             = 1000; overlap = 500;  dts     = 100;  step     = window - overlap;
+win_i = 1;
+swin = (win_i*step/dts+1):(win_i*step/dts+window/dts+1)
+dim                   = size(Gaussian_noise); tpoints = dim(1);
+W                      = round((tpoints-window/dts-dts)/(window-overlap)*dts);
+W
+f_sampling        = 250; f_low  = 8; f_high = 13; % Hz
+f_nrm_low  = f_low /(f_sampling/2); f_nrm_high  = f_high /(f_sampling/2);
+% Determine filter coefficients:
+[z,p,k] = butter(4,[f_nrm_low f_nrm_high],'bandpass');
+% Convert to zero-pole-gain filter parameter (recommended)
+sos        = zp2sos(z,p,k);
+sig_flt    = sosfilt(sos,Gaussian_noise); size(sig_flt); % apply filter
+hbert     = hilbert(sig_flt); size(hbert);
+envelope        = abs(real(hbert))';
+RMS_envelope = zeros(dim(2),W);
+CVE                 = zeros(dim(2),W);
+for win_i = 0:W-1
+    for ch_i = 1:dim(2)        
+        X = envelope(ch_i,(win_i*step/dts+1):(win_i*step/dts+window/dts+1));
+        RMS_envelope(ch_i, win_i+1) = rms(X);
+        CVE(ch_i, win_i+1) = std(X)/mean(X);
+    end
+end
+
+%% CVE of Gaussian noise
+mean(CVE(:))
+Gaussian_CVE = sqrt((4-pi)/pi) % Gaussian CVE
+thr_left   = prctile(CVE(:),5)
+thr_right = prctile(CVE(:),95) 
+%thr_left   = Gaussian_CVE-prctile(CVE(:),1)
+%thr_right = Gaussian_CVE+prctile(CVE(:),1)
+rhythmicity_a = X_a(X_a <= thr_left); rhythmicity_b = X_b(X_b <= thr_left); % rhythmic windows
+phasic_a = X_a(X_a >= thr_right); phasic_b = X_b(X_b >= thr_right); % phasic windows
+rhythmic_windows(1,:)= length(rhythmicity_a); rhythmic_windows(2,:)= length(rhythmicity_b);
+rhythmic_occupancy(1,:) = (100/length(X_a))*rhythmic_windows(1,:);
+rhythmic_occupancy(2,:) = (100/length(X_b))*rhythmic_windows(2,:);
+rhythmic_occupancy % percentage of rhytmic windows for each condition
+phasic_windows(1,:) = length(phasic_a); phasic_windows(2,:) = length(phasic_b);
+phasic_occupancy(1,:) = (100/length(X_a))*phasic_windows(1,:);
+phasic_occupancy(2,:) = (100/length(X_b))*phasic_windows(2,:);
+phasic_occupancy % percentage of phasic windows for each condition
+
+
 
 
 %% Metastability
@@ -337,4 +385,4 @@ fname = [folder '/kurvar-rms_alpha_all.png'];
 print(gcf, fname, '-dpng', '-r150', '-painters')
 
 
-
+ 
