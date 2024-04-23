@@ -1,30 +1,12 @@
 # Rhythm Gaussianity
 
-Here a minimal working example for revealing Rhythm Gaussianity by relating amplitude modulations to signal energy.
+Here a minimal working example for revealing Rhythm Gaussianity by relating amplitude modulations to EEG signal energy.
 
 * CVE = 0.523 reflects Gaussian noise
-* CVE < 0.523 reflects rhythmic fluctuations (e.g. Kuramoto oscillations)
-* CVE > 0.523 reflects phasic activity (e.g. avalanches)
+* CVE < 0.523 reflects rhythmic fluctuations (*e.g.* Kuramoto oscillations)
+* CVE > 0.523 reflects phasic activity (*e.g.* avalanches)
 
-
-
-**References**
-
-1. W. Singer, **Neuronal synchrony: A versatile code for the definition of relations?** Neuron, vol. 24, no. 1, pp. 49–65, 1999.
-
-2. S. H. Strogatz, **Norbert wiener’s brain waves**, Frontiers in Mathematical Biology Berlin, Heidelberg: Springer, 1994, pp. 122–138.
-
-3. Y. Kuramoto, **Self-entrainment of a population of coupled non-linear oscillators**, International Symposium on Mathematical Problem
-
-4. F. H. L. Da Silva et al., **Organization of thalamic and cortical alpha rhythms: Spectra and coherences**, Electroencephalography Clin. Neuriophysiol., vol. 35, no. 6, pp. 627–639, 1973.
-
-5. K. Motokawa and T. Mita, **Das wahrscheinlichkeitsprinzip über die gehirn elektrische erscheinungen des menschen**, Japanese J. Med. Sci.III Biophys., vol. 8, pp. 63–77, 1942.
-
-6. Hidalgo VM, Letelier JC, Diaz J, **The amplitude modulation pattern of Gaussian noise is a fingerprint of Gaussianity**, https://doi.org/10.48550/arXiv.2203.16253
-
-7. Hidalgo VM, Diaz J, Mpodozis J, Letelier JC, **Envelope Analysis of the Human Alpha Rhythm Reveals EEG Gaussianity**, IEEE Trans Biomed Eng. 2023 Apr;70(4):1242-1251. https://doi.org/10.1109/TBME.2022.3213840  
-
-
+> Hidalgo VM, Letelier JC, Diaz J, **The amplitude modulation pattern of Gaussian noise is a fingerprint of Gaussianity**, https://doi.org/10.48550/arXiv.2203.16253
 
 ## Introduction
 
@@ -67,3 +49,18 @@ The mean of the RMS envelope distributions differed between the B and the A cond
 Regardless of the reduced dynamic range in RMS envelope and CVE for condition A, our analysis of itinerancy in the CVE space revealed an increased tendency for departures from alpha rhythm Gaussianity towards phasic activity. This last result is of fundamental methodological importance, as it reveals, in a data driven manner, departures in the dynamic repertoire of rhythmic itineraries, likely pointing to the disintegration of oscillatory dynamics (*e.g.* phase scattering), increased neuronal avalanches or another related mechanism, hypothesized to occur more frequently in condition A. Even though the observed increased departures from Gaussianity towards the direction of phasic activity (**Table 1**) may indeed relate to changes in the mean EEG field caused by neuronal mechanisms, it is likely that these too reflect the contribution of muscular artifacts. Moreover, the calculation of the sequences was done on time series concatenated across subjects, which includes the possibility that windows belonging to different subjects appeared contiguous in our analysis. While this procedure may introduce jumps in the results, and these jumps may contribute to apparent phasic dynamics, we believe that this effect is negligible, as the the minimum window length would, ideally, reduce this chance. Finally, we pushed the limits of the method by using a window length of 4 seconds. While this decision ensured that muscular artifacts could be conveniently rejected, we cannot discard the potentially limiting influence of the resulting jumps in the CVE estimation. In the future, these limitations could be better assessed to improve the potential of this method to assess dynamic repertoires in rhythmic EEG data in a variety of conditions.
 
 
+## References
+
+1. W. Singer, **Neuronal synchrony: A versatile code for the definition of relations?** Neuron, vol. 24, no. 1, pp. 49–65, 1999.
+
+2. S. H. Strogatz, **Norbert wiener’s brain waves**, Frontiers in Mathematical Biology Berlin, Heidelberg: Springer, 1994, pp. 122–138.
+
+3. Y. Kuramoto, **Self-entrainment of a population of coupled non-linear oscillators**, International Symposium on Mathematical Problem
+
+4. F. H. L. Da Silva et al., **Organization of thalamic and cortical alpha rhythms: Spectra and coherences**, Electroencephalography Clin. Neuriophysiol., vol. 35, no. 6, pp. 627–639, 1973.
+
+5. K. Motokawa and T. Mita, **Das wahrscheinlichkeitsprinzip über die gehirn elektrische erscheinungen des menschen**, Japanese J. Med. Sci.III Biophys., vol. 8, pp. 63–77, 1942.
+
+6. Hidalgo VM, Letelier JC, Diaz J, **The amplitude modulation pattern of Gaussian noise is a fingerprint of Gaussianity**, https://doi.org/10.48550/arXiv.2203.16253
+
+7. Hidalgo VM, Diaz J, Mpodozis J, Letelier JC, **Envelope Analysis of the Human Alpha Rhythm Reveals EEG Gaussianity**, IEEE Trans Biomed Eng. 2023 Apr;70(4):1242-1251. https://doi.org/10.1109/TBME.2022.3213840  
