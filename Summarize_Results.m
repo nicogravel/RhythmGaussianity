@@ -1,21 +1,19 @@
-%% Using the Coefficient of Variation (CVE) and RMS envelope to assess Rhythm Gaussianity
-% CVE = 0.523 reflects Gaussian noise
-% CVE < 0.523 reflects rhythmic fluctuations (e.g. Kuramoto oscillations)
-% CVE > 0.523 reflects phasic activity (e.g. avalanches)
+%% Itinerancy in the RMS-CVE space 
+% To quantify the itinerancy in the RMS-CVE space, the tendency for departures from Gaussianity, 
+% we proceeded as follows. First, for each subject and condition, we counted all sequences of contiguous 
+% epochs in which the RMS envelope and the CVE were increasing or decreasing. To do so, we defined a
+% minimum sequence length (3 consecutive epochs, equivalent to 9 seconds) and identified the start of
+% each sequence. Second, we summed the number of contiguous sequences with positive or negative shifts.
+% Third, we computed, for each subject and condition, the percentage of the sequences.
+%To assess the departures from rhythm Gaussianity, we created a null distribution of CVE values by applying
+% the procedure used to process the EEG data to Gaussian noise. This resulted in a distribution of CVE values
+% with mean 0.523 (very close to the theoretical value for Gaussian noise: √(4 − π)/π ≈ 0.523). We then used
+% the 10% and 90% percentile values of this null distribution as thresholds to define departures from 
+% Gaussianity. This allowed us to compute, for each subject and condition, the percentage of epochs in which
+% the data departed from Gaussianity.
 %
-% Authors:
+% Author:
 % Nicolas Gravel <nicolas.gravel@gmail.com>
-%
-% References:
-%
-% Hidalgo VM, Diaz J, Mpodozis J, Letelier JC. Envelope Analysis of
-% the Human Alpha Rhythm Reveals EEG Gaussianity. IEEE Trans Biomed Eng.
-% 2023 Apr;70(4):1242-1251.
-% doi: 10.1109/TBME.2022.3213840. Epub 2023 Mar 21. PMID: 36223351.
-%
-% Hidalgo VM, Letelier JC, Diaz J. The amplitude modulation pattern of
-% Gaussian noise is a fingerprint of Gaussianity.
-% https://doi.org/10.48550/arXiv.2203.16253
 
 
 clear all; close all; clc;

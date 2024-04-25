@@ -3,7 +3,7 @@
 % CVE < 0.523 reflects rhythmic fluctuations (e.g. Kuramoto oscillations)
 % CVE > 0.523 reflects phasic activity (e.g. avalanches)
 %
-% Authors:
+% Author:
 % Nicolas Gravel <nicolas.gravel@gmail.com>
 %
 % References:
