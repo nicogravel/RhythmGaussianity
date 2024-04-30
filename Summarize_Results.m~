@@ -367,9 +367,9 @@ CVE_departures
 [H0,pval] = kstest2(vertcat(CVE_phasic_up{1,:,:}),vertcat(CVE_phasic_up{2,:,:}),'tail','smaller')            % Different
 
 
-[H0,pval] = kstest2(vertcat(CVE_rhythm_up{1,:,1:2}),vertcat(CVE_rhythm_up{2,:,1:2}),'tail','larger')  % Not different
-[H0,pval] = kstest2(vertcat(CVE_rhythm_up{1,:,3}),vertcat(CVE_rhythm_up{2,:,3}),'tail','larger')  % Not different
-[H0,pval] = kstest2(vertcat(CVE_rhythm_up{1,:,4:5}),vertcat(CVE_rhythm_up{2,:,4:5}),'tail','larger')  % Not different
+[H0,pval] = kstest2(vertcat(CVE_rhythm_up{1,:,1:2}),vertcat(CVE_rhythm_up{2,:,1:2}),'tail','smaller')  % Not different
+[H0,pval] = kstest2(vertcat(CVE_rhythm_up{1,:,3}),vertcat(CVE_rhythm_up{2,:,3}),'tail','smaller')  % Not different
+[H0,pval] = kstest2(vertcat(CVE_rhythm_up{1,:,4:5}),vertcat(CVE_rhythm_up{2,:,4:5}),'tail','smaller')  % Not different
 
 
 [H0,pval] = kstest2(vertcat(CVE_phasic_up{1,:,1:2}),vertcat(CVE_phasic_up{2,:,1:2}),'tail','smaller')  % Not different
