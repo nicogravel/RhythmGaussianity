@@ -45,7 +45,7 @@ To assess the departures from rhythm Gaussianity, we created a null distribution
   
 **Table 1.** Changes in the RMS and the CVE point to departures from rhythm Gaussianity. The first four columns indicate, for RMS and CVE, the percentage of contiguously decreasing or incresing RMS and CVE values for epoch sequences longer than 9 seconds (across subjects and chanels). Only RMS decreases betwen conditions A and B were significantly diferent (single sided Wilcoxon rank-sum test, p-value = 0.0071). Similarly, the last two columns indicate, for CVE, the percentage of sequences below or above the thresholds for Gaussian noise. Note how to majority of contiguous epoch sequences corresponds to increases in CVE (last column). Only CVE increases betwen conditions A and B were significantly diferent (single sided Wilcoxon rank-sum test, p-value = 0.0071). This larger tendency for transitions towards phasic in condition A indicates that rhythm amplitude variabilityin the alpha band (8-14 Hz) increaes on a longer time scale than that it takes to decrease. This implies that the onset of the alpha rhythm may hapen at a faster time scale than that of its dissapearence, likely marked by slow and persistent signal diversity during condition A.
 
-|   | *Rhytm Gaussianity* | *left parietal*  | *left occipital* | *central occipital*  | *right occipital* | *right parietal* | 
+|   | *Rhythm Gaussianity* | *left parietal*  | *left occipital* | *central occipital*  | *right occipital* | *right parietal* | 
 |---|---|---|---|---|---|---|
 | **A**  |  *Rhythmic*  |        4.4776 %|    5.7971 %|    4.3478 %|    7.3529 %|    7.1429 %|
 | **B** |  *Rhythmic*  |    8.3333 %|   10.7143 %|    8.9286 %|   10.9091 %|   11.5385 %|
