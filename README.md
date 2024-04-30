@@ -34,17 +34,30 @@ To assess the departures from rhythm Gaussianity, we created a null distribution
 
 **Figure 2.** Contour plots illustrating the relationship between RMS envelope and CVE. Contours were obtained by linear interpolation of the bi-variate grid. Colorbar indicate bin count for each contour.
 	
-|   |   *RMS decreases*| *RMS increases*  | *Rhythmic CVE* | *Phasic CVE* | 
-|---|---|---|---|---|
-|  **A** |    50.7692 %|    49.2308 %|   1.1628 % | 3.4483 % |
-|   **B**|    44.3011 %|    55.6989 %|   2.8302 % | 1.3333 % |
+
+
+
+|   |   *RMS decreases*| *RMS increases*  | *CVE decreases*| *CVE increases*  | *Rhythmic CVE* | *Phasic CVE* | 
+|---|---|---|---|---|---|---|
+|  **A** |    56.38 %|   43.62 %|  45.02 %|   54.98 %|  5.83 % | 94.19 % |
+|  **B**|    45.75 %|   54.25 %|   53.47 %|   46.53 %|  10.1124 % | 89.8876 % |
 
   
-**Table 1.** Changes in the RMS and the CVE point to departures from rhythm Gaussianity. The first two columns indicate, for RMS, the percentage of contiguous epoch sequences longer than 9 seconds. The last two columns indicate, for CVE, the percentage of sequences below or above the threshold for Gaussian noise (the majority of epochs are between these values, hence the small percentages).
+**Table 1.** Changes in the RMS and the CVE point to departures from rhythm Gaussianity. The first four columns indicate, for RMS and CVE, the percentage of contiguously decreasing or incresing RMS and CVE values for epoch sequences longer than 9 seconds (across subjects and chanels). Only RMS decreases betwen conditions A and B were significantly diferent (single sided Wilcoxon rank-sum test, p-value = 0.0071). Similarly, the last two columns indicate, for CVE, the percentage of sequences below or above the thresholds for Gaussian noise. Note how to majority of contiguous epoch sequences corresponds to increases in CVE (last column). Only CVE increases betwen conditions A and B were significantly diferent (single sided Wilcoxon rank-sum test, p-value = 0.0071) This tendency for transitions towards phasic activity was larger for condition A. This indicates that rhythm amplitude variability increases at a faster time scale than it decreases. In other words, the alpha rhythm onset may be quicker than its dissapearence, likely marked by slow dynamics.
+
+|   | *Rhytm Gaussianity* | *left parietal*  | *left occipital* | *central occipital*  | *right occipital* | *right parietal* | 
+|---|---|---|---|---|---|---|
+| **A**  |  *Rhythmic*  |        4.4776 %|    5.7971 %|    4.3478 %|    7.3529 %|    7.1429 %|
+| **B** |  *Rhythmic*  |    8.3333 %|   10.7143 %|    8.9286 %|   10.9091 %|   11.5385 %|
+| **A** | *Phasic*  |       95.5224 %|  94.2029 %|   95.6522 %|   92.6471 %|   92.8571 %|
+| **B** |  *Phasic* |    91.6667 %|   89.2857 %|   91.0714 %|   89.0909 %|   88.4615 %|
+  
+**Table 2.** Rhthym Gaussianity for individual channels. In condition A, recording sites on the right hemispere exhibited an increased tendency towards rhythmic activity in comparison to those same recording sites in condition B (single sided Wilcoxon rank-sum test, p-value = 0.0045). This difference was accompanied by an increased tendency towards attenuation of RMS values in the same hemisphere, although not signifcantly (single sided Wilcoxon rank-sum test, p-value = 0.0612). Recordings sites on the center of the occipital pole exhibited barely signifcaintly increased tendency towards phasic activity in condition A (single sided Wilcoxon rank-sum test, p-value = 0.0458)
+ 
 
 
 ## Results
-The mean of the RMS envelope distributions differed between the B and the A condition (two-sample t-test, p-value <0.0001). On the other hand, the mean of the CVE distributions did not (two-sample t-test, p-valjue = 0.0011). For sequences of contiguous epochs longer than 9 seconds, positive RMS shifts were increased in condition B as compared to condition A (**Table 1**, second column). In the case of CVE shifts, increased phasic activity was increased in condition B, as compared to conditon B (**Table 1**, last column). This indicates that departures from the Gaussianity in the direction of phasic activity were higher for condition A. On the other hand, departures towards oscillatory dynamics were increased for condition B (**Table 1**, third column). 
+The mean of the RMS envelope distributions differed between the B and the A condition (Wilcoxon rank-sum test, p-value <0.0001). On the other hand, the mean of the CVE distributions did not (two-sample t-test, p-valjue = 0.0011). For sequences of contiguous epochs longer than 9 seconds, positive RMS shifts were increased in condition B as compared to condition A (**Table 1**, second column). In the case of CVE shifts, increased phasic activity was increased in condition B, as compared to conditon B (**Table 1**, last column). This indicates that departures from the Gaussianity in the direction of phasic activity were higher for condition A. On the other hand, departures towards oscillatory dynamics were increased for condition B (**Table 1**, third column). 
   
 ## Discussion and concluding remarks
 Our analysis of itinerancy in the CVE space revealed, for conditon A, an increased tendency for departures from rhythm Gaussianity in the alpha band towards phasic activity. This result is of fundamental methodological importance, as it reveals, in a data driven manner, departures in the dynamic repertoire of rhythmic itinerancies, likely pointing to the disintegration of alpha oscillations (*e.g.* phase scattering, neuronal avalanches), hypothesized to occur more frequently in condition A **[7]**. Even though the observed increased departures from Gaussianity towards the direction of phasic activity (**Table 1**, last column) may indeed relate to changes in the mean EEG field caused by neuronal mechanisms **[8]**, it is likely that these too reflect the contribution of muscular artifacts. Finally, we pushed the limits of the method by defining epochs using a sliding window length of 4 seconds and 25%, instead of the 24 seconds prescribed in **[6]**. While this decision ensured that muscular artifacts could be efficiently rejected, we cannot discard the potentially limiting influence of this decision on the CVE estimation. In the future, these limitations could be addressed to improve the potential of this method to assess task-dependent dynamic repertoires in EEG rhythms.

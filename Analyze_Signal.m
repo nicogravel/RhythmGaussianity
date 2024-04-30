@@ -20,14 +20,14 @@
 
 clear; clc; %close all
 
-addpath /Users/Nicolas/Downloads/fieldtrip-20231025
-addpath /Users/Nicolas/Documents/MATLAB/CFmrVista/vistasoft/cc-pRF/MISC/CircStats
+addpath /fieldtrip-20231025
+addpath /CircStats
 ft_defaults()
 
 
 %% Analyse data
-% These are the two datasets from CZECH institute
-files = {'sampleAt1_5hA.edf', 'sampleAt1_5hB.edf'}
+% These are the two datasets:
+files = {'A.edf', 'B.edf'}
 conditions        = ['A', 'B'];
 fband_of_interest = [8 13];
 phasediff_histos  = 0;

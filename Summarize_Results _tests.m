@@ -26,7 +26,7 @@ excursion_length = 2; % sequence length as number of succesive windows
 threshold = 'Bandpass_Percentiles'
 
 
-list.conditions = {'A', 'B'};
+list.conditions = {'Mushroom', 'Placebo'};
 
 %% Load results
 for condition = 1 : length(list.conditions)
@@ -41,10 +41,10 @@ for condition = 1 : length(list.conditions)
 end
 
 %% Compute differences in RMS and CVE
-RMS{1} = squeeze(vertcat(RMS_(1,1:size(results.A,2),:)));
-RMS{2} = squeeze(vertcat(RMS_(2,1:size(results.B,2),:)));
-CVE{1} = squeeze(vertcat(CVE_(1,1:size(results.A,2),:)))
-CVE{2} = squeeze(vertcat(CVE_(2,1:size(results.B,2),:)));
+RMS{1} = squeeze(vertcat(RMS_(1,1:size(results.Mushroom,2),:)));
+RMS{2} = squeeze(vertcat(RMS_(2,1:size(results.Placebo,2),:)));
+CVE{1} = squeeze(vertcat(CVE_(1,1:size(results.Mushroom,2),:)))
+CVE{2} = squeeze(vertcat(CVE_(2,1:size(results.Placebo,2),:)));
 
 % RMS
 [H0,pval] = kstest2(horzcat(RMS{1}{:,:}),horzcat(RMS{2}{:,:}))  % CVE  differences are not significative
